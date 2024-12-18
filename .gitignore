@@ -1,0 +1,7 @@
+/Client/Library
+/Client/Temp
+/Client/Logs
+/Client/obj
+/Client/*.csproj
+/Client/*.sln
+/Client/*.vs

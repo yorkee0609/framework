@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 1305441910
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: df6ee14085a51dc8c662073cde40e28e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c21d61fe394c58399df3c6fb5c7c99b3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Res/Texture/UI/Loading/a_dl_bg2.png
+Dependencies: []
