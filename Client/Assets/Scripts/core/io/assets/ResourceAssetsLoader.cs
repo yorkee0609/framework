@@ -19,4 +19,11 @@ public class ResourceAssetsLoader : IAssetsLoader
             asset?.Invoke(request.asset as T);
         };
     }
+
+    public override bool UnloadAsset(string bundleName, UnityEngine.Object asset)
+    {
+        if(asset != null)
+            Resources.UnloadAsset(asset);
+        return true;
+    }
 }

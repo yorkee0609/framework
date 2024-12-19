@@ -19,7 +19,11 @@ namespace wc.framework
             private set;
         }
         private List<BundleObject> depends = new List<BundleObject>();
-        private int refCount = 0;
+        public int refCount
+        {
+            get;
+            private set;
+        }
         public bool Loaded
         {
             get;
@@ -33,8 +37,23 @@ namespace wc.framework
         {
             this.Loaded = false;
             this.bundleName = bundleName;
-            this.bundlePath = FileHelper.Instance.GetExistPath(bundleName);
+            this.bundlePath = FileHelper.Instance.GetExistPath(GetBundlePath(this.bundleName));
             refCount = 1;
+        }
+
+
+
+        private string GetBundlePath(string bundleName)
+        {
+#if UNITY_ANDROID
+            const string platform = "Android";
+#elif UNITY_IOS            
+            const string platform = "iOS";
+#elif UNITY_STANDALONE_WIN
+            const string platform = "Windows";
+#elif Unity_WebGL
+#endif
+            return string.Format("Bundles/{0}/{1}", platform, bundleName);
         }
 
         public void CheckBundleLoadedCallBack(BundleLoadCallBack callBack = null)
@@ -78,19 +97,11 @@ namespace wc.framework
                 string dependName = dependNames[i];
                 BundleObject depend = BundleManager.Instance.GetBundle(dependName, (bundle)=>{
                     dependCount--;
-                });
-                if(!depend.Loaded)
-                {                    
-                    depend.CheckBundleLoadedCallBack((bundle)=>{
-                        dependCount--;
-                    });
-                }
-                else{
-                    dependCount--;
-                }
+                });          
                 depends.Add(depend);
             }
             yield return dependCount == 0;
+
 
             UnityWebRequest request = UnityWebRequestAssetBundle.GetAssetBundle(bundlePath);
             request.SendWebRequest();
@@ -144,7 +155,7 @@ namespace wc.framework
                 return;
             foreach (var depend in depends)
             {
-                depend.RemoveRef();
+                BundleManager.Instance.UnloadBundle(depend.bundleName);
             }
             depends.Clear();
             if(bundle != null)

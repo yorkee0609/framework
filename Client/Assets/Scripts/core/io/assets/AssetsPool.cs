@@ -45,11 +45,12 @@ namespace wc.framework
 
         public void Clear()
         {
-            Assert.IsTrue(activePool.Count == 0);
-            foreach (var item in activePool)
-            {
-                GameObject.Destroy(item);
-            }
+            // clear后return的active obj自己销毁
+            // Assert.IsTrue(activePool.Count == 0);
+            // foreach (var item in activePool)
+            // {
+            //     GameObject.Destroy(item);
+            // }
             foreach (var item in pool)
             {
                 GameObject.Destroy(item);

@@ -12,15 +12,25 @@ public class BundleAssetsLoader : IAssetsLoader
         BundleManager.Instance.GetBundle(bundleName, (bundle) => {
             if(bundle == null || bundle.bundle == null)
             {
-                Log.LogError($"bundleName:{bundleName} assetName:{assetName} load fail");
+                Log.LogError($"bundleName:{bundleName} assetName:{assetName} load bundle fail");
+                callBack?.Invoke(null);
+                return;
             }
             BundleManager.Instance.GetAsset(bundle, assetName, (asset)=>
             {
-                callBack?.Invoke(asset as T);
+                if(asset == null || asset.obj == null)
+                {
+                    Log.LogError($"bundleName:{bundleName} assetName:{assetName} load asset fail");
+                }
+                callBack?.Invoke(asset.obj as T);
             });
         });
 
 
     }
 
+    public override bool UnloadAsset(string bundleName, UnityEngine.Object asset)
+    {
+        return BundleManager.Instance.UnloadBundle(bundleName);
+    }
 }

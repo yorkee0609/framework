@@ -1,7 +1,18 @@
 ManifestFileVersion: 0
-CRC: 470001755
+CRC: 897139549
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
+      Name: texture_ui_loading_a_dl_bg.bundle
+      Dependencies: {}
+    Info_1:
       Name: texture_ui_loading_a_dl_bg2.bundle
+      Dependencies: {}
+    Info_2:
+      Name: ui_loading_loading.bundle
+      Dependencies:
+        Dependency_0: texture_ui_loading_a_dl_bg2.bundle
+        Dependency_1: ui_template_tips.bundle
+    Info_3:
+      Name: ui_template_tips.bundle
       Dependencies: {}

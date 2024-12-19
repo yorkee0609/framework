@@ -21,12 +21,22 @@ namespace wc.framework
 
         public BundleObject GetBundle(string bundleName,Action<BundleObject> callback)
         {
+            bundleName = GetBundleNameWithExtension(bundleName);
+            if(!MainfestManager.Instance.HasBundle(bundleName))
+            {
+                Log.LogError($"bundle:{bundleName} not exist");
+                callback?.Invoke(null);
+                return null;
+            }
             BundleObject bundleObj = null;
             if(bundleCach.ContainsKey(bundleName))
             {
                 bundleObj = bundleCach[bundleName];
                 bundleObj.AddRef();
-                callback?.Invoke(bundleObj);
+                bundleObj.CheckBundleLoadedCallBack((bundle)=>
+                {
+                    callback?.Invoke(bundle);
+                });
             }
             else
             {
@@ -41,6 +51,18 @@ namespace wc.framework
             }
             return bundleObj;
         }
+        private string GetBundleNameWithExtension(string bundleName)
+        {
+            //多语言会有不同的变体后缀需要额外处理
+            //例如：zh-CN  zh-TW
+            if(bundleName.EndsWith(".bundle"))
+            {
+                return bundleName;
+            }
+            else{
+                return string.Format("{0}.bundle",  bundleName);
+            }
+        }
 
         private void OnBundleLoaded(BundleObject bundle)
         {
@@ -48,7 +70,7 @@ namespace wc.framework
                 loadingBundles.Remove(bundle);
             if(bundle.Loaded)
                 loadedBundles.Add(bundle);
-            else
+            else if(bundleCach.ContainsKey(bundle.bundleName))
                 bundleCach.Remove(bundle.bundleName);
         }
 
@@ -57,6 +79,8 @@ namespace wc.framework
             while(loadingBundles.Count < maxLoadingBundleCount && waitloadingBundles.Count > 0)
             {
                 var bundle = waitloadingBundles.Dequeue();
+                if(bundle.refCount == 0)
+                    continue;
                 loadingBundles.Add(bundle);
                 StartCoroutine(bundle.Load());
             }
@@ -100,6 +124,26 @@ namespace wc.framework
         {
             DoBundleLoad();
             DoAssetLoad();
+        }
+
+        public bool UnloadBundle(string bundleName)
+        {
+            bundleName = GetBundleNameWithExtension(bundleName);
+            if(!bundleCach.ContainsKey(bundleName))
+            {
+                Log.LogWarning($"bundle:{bundleName} not exist");
+                return true;
+            }
+            var bundle = bundleCach[bundleName];
+            bundle.RemoveRef();
+            if(bundle.refCount == 0)
+            {
+                if(loadedBundles.Contains(bundle))
+                    loadedBundles.Remove(bundle);         
+                bundleCach.Remove(bundleName);  
+                return true;
+            }  
+            return false;
         }
     }
 }

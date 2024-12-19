@@ -41,8 +41,19 @@ namespace wc.framework
                 if(obj != null)
                 {
                     callBack?.Invoke(obj as T);
-                    return;
                 }
+                else{
+                    assetLoader.LoadAsset<T>(bundleName,assetsName,(obj)=>{
+                        if(obj == null)
+                        {
+                            callBack?.Invoke(null);
+                            return;
+                        }
+                        GameObject newObj = AddAssetPool(bundleName,assetsName,obj as GameObject);
+                        callBack?.Invoke(newObj as T);
+                    });
+                }                
+                return;
             }
             assetLoader.LoadAsset<T>(bundleName,assetsName,callBack);
         }
@@ -73,13 +84,34 @@ namespace wc.framework
             if(obj.transform.parent != null)
                 obj.transform.SetParent(null);  
             string[] path = obj.name.Split('-');
-            if(path.Length < 2)
+            if(path.Length < 2 || !ObjPool.ContainsKey(path[0]) || !ObjPool[path[0]].ContainsKey(path[1]))
+            {
+                Destroy(obj);
                 return;
-            if(!ObjPool.ContainsKey(path[0]))
-                return;
-            if(!ObjPool[path[0]].ContainsKey(path[1]))
-                return;
+            }
             ObjPool[path[0]][path[1]].Return(obj);
+        }
+
+        public void UnloadAsset(string bundleName,UnityEngine.Object obj) 
+        {
+
+            bool unload = assetLoader.UnloadAsset(bundleName,obj);
+            if(unload)
+            {
+                if(obj is GameObject)
+                {
+                    ReturnAsset(obj as GameObject);
+                    if(ObjPool.ContainsKey(bundleName))
+                    {
+                        foreach (var item in ObjPool[bundleName])
+                        {
+                            item.Value.Clear();
+                        }
+                        ObjPool[bundleName].Clear();
+                    }
+                    ObjPool.Remove(bundleName);
+                }
+            }
         }
 
     }

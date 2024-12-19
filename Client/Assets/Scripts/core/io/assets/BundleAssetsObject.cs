@@ -41,6 +41,8 @@ namespace wc.framework
                 yield break;
             }
             AssetBundleRequest request = bundle.bundle.LoadAssetAsync(assetName);
+            
+            yield return new WaitForSeconds(5f);
             yield return request.isDone;
             obj = request.asset;
             if(obj == null)

@@ -19,7 +19,7 @@ namespace wc.framework
             private set;
         }
 
-        public IEnumerator Init()
+        public IEnumerator InitManifest()
         {
             IsInit = false;
             mainfest.Clear();
@@ -33,7 +33,7 @@ namespace wc.framework
             IsInit = true;
             yield break;
 #endif
-            string manifestPath =  "Bundles/" + platform + "/" + platform + ".manifest";
+            string manifestPath =  "Bundles/" + platform + "/" + platform;
 
             string path = FileHelper.Instance.GetExistPath(manifestPath);
 

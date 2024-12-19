@@ -1,0 +1,49 @@
+ManifestFileVersion: 0
+CRC: 3764962901
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9ae4c1c4945da5217c9824a423aaffa3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 00e7034c1809ca0f885310392089deec
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 857ee3f3a85fcd947822cacde0924242, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.FontData
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+Assets:
+- Assets/Resources/Res/UI/Loading/Loading.prefab
+Dependencies:
+- C:/game24/Framework/Client/Assets/StreamingAssets/Bundles/Android/texture_ui_loading_a_dl_bg2.bundle
+- C:/game24/Framework/Client/Assets/StreamingAssets/Bundles/Android/ui_template_tips.bundle
