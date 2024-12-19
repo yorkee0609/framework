@@ -22,7 +22,7 @@ namespace wc.framework
         public BundleObject GetBundle(string bundleName,Action<BundleObject> callback)
         {
             bundleName = GetBundleNameWithExtension(bundleName);
-            if(!MainfestManager.Instance.HasBundle(bundleName))
+            if(!ManifestManager.Instance.HasBundle(bundleName))
             {
                 Log.LogError($"bundle:{bundleName} not exist");
                 callback?.Invoke(null);

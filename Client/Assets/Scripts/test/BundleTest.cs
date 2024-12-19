@@ -8,11 +8,16 @@ public class BundleTest : MonoBehaviour
 {
     public Image image;
     public Canvas canvas;
+
+    BundleObject ShaderBundle;
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        yield return MainfestManager.Instance.InitManifest();
+        yield return ManifestManager.Instance.InitManifest();
         yield return null;
+
+        ShaderBundle = BundleManager.Instance.GetBundle("shaders",null);
+        yield return ShaderBundle.Loaded;
     }
 
     void OnGUI()
@@ -60,6 +65,32 @@ public class BundleTest : MonoBehaviour
 
         }
 
+
+       if (GUI.Button(new Rect(100,600,100,50),"load scene"))
+        {
+            AssetsManager.Instance.LoadScene("scene_scene1", (progress) =>
+            {
+                Debug.Log(progress);
+                if(progress == 1)
+                {
+                    Resources.UnloadUnusedAssets();
+                    System.GC.Collect();
+                }
+            });
+        }
+
+        if (GUI.Button(new Rect(100,700,100,50),"load scene empty"))
+        {
+            AssetsManager.Instance.LoadScene("scene_empty", (progress) =>
+            {
+                Debug.Log(progress);
+                if(progress == 1)
+                {
+                    Resources.UnloadUnusedAssets();
+                    System.GC.Collect();
+                }
+            });               
+        }
 
     }
 

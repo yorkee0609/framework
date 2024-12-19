@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 3023557432
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c69ff3d3d74e029f58b6d49fc7ce9653
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a8b00cc50e48043a3d48b33a3e5f42a8
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 200
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Res/Shader/unlitShader.shader
+- Assets/Resources/Res/Shader/ShaderVariants.shadervariants
+Dependencies: []

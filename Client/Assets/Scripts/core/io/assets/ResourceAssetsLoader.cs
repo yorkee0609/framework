@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResourceAssetsLoader : IAssetsLoader
 {
@@ -26,4 +27,15 @@ public class ResourceAssetsLoader : IAssetsLoader
             Resources.UnloadAsset(asset);
         return true;
     }
+
+    public override void LoadScene(string sceneName,Action<float> callBack)
+    {
+        AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
+        async.completed += (op) =>{
+            callBack?.Invoke(async.progress);
+        };
+    }
+
+
+
 }

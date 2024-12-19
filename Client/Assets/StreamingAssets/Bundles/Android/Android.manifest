@@ -1,18 +1,28 @@
 ManifestFileVersion: 0
-CRC: 897139549
+CRC: 3513983427
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: texture_ui_loading_a_dl_bg.bundle
+      Name: scene_empty.bundle
       Dependencies: {}
     Info_1:
+      Name: scene_scene1.bundle
+      Dependencies:
+        Dependency_0: shaders.bundle
+    Info_2:
+      Name: shaders.bundle
+      Dependencies: {}
+    Info_3:
+      Name: texture_ui_loading_a_dl_bg.bundle
+      Dependencies: {}
+    Info_4:
       Name: texture_ui_loading_a_dl_bg2.bundle
       Dependencies: {}
-    Info_2:
+    Info_5:
       Name: ui_loading_loading.bundle
       Dependencies:
         Dependency_0: texture_ui_loading_a_dl_bg2.bundle
         Dependency_1: ui_template_tips.bundle
-    Info_3:
+    Info_6:
       Name: ui_template_tips.bundle
       Dependencies: {}

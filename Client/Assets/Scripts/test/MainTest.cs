@@ -8,7 +8,7 @@ public class MainTest : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        MainfestManager.Instance.InitManifest();
+        ManifestManager.Instance.InitManifest();
         yield return null;
     }
 

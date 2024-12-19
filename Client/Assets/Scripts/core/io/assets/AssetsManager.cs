@@ -114,6 +114,29 @@ namespace wc.framework
             }
         }
 
+
+
+        public void GetGameObject(string bundleName, string assetsName, Action<GameObject> callBack)
+        {
+            LoadAsset<GameObject>(bundleName,assetsName,callBack);
+        }
+
+        public void GetTexture(string bundleName, string assetsName, Action<Texture> callBack)
+        {
+            LoadAsset<Texture>(bundleName,assetsName,callBack);
+        }
+
+        public void GetTexture2D(string bundleName, string assetsName, Action<Texture2D> callBack)
+        {
+            LoadAsset<Texture2D>(bundleName,assetsName,callBack);
+        }
+
+        public void LoadScene(string sceneName,Action<float> callBack)
+        {
+            assetLoader.LoadScene(sceneName,callBack);
+        }
+
+
     }
 }
 

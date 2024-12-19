@@ -90,7 +90,7 @@ namespace wc.framework
 
         public IEnumerator Load()
         {
-            string[] dependNames = MainfestManager.Instance.GetBundleDependences(bundleName);
+            string[] dependNames = ManifestManager.Instance.GetBundleDependences(bundleName);
             int dependCount = dependNames.Length;
             for(int i = 0; i < dependNames.Length; i++)
             {

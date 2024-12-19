@@ -10,7 +10,7 @@ namespace wc.framework
         public string[] dependences;
         public Hash128 hash;
     }
-    public class MainfestManager : Singleton<MainfestManager>
+    public class ManifestManager : Singleton<ManifestManager>
     {
         private Dictionary<string, AssetBundleData> mainfest = new Dictionary<string, AssetBundleData>();
         public bool IsInit

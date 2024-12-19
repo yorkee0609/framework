@@ -9,4 +9,6 @@ public abstract class IAssetsLoader
 
     public abstract bool UnloadAsset(string bundleName, UnityEngine.Object asset);
 
+    public abstract void LoadScene(string sceneName,Action<float> callBack);
+
 }
