@@ -1,0 +1,11 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: W_BaD_SkillInfo
+  m_Script: '{"animList":[{"animName":"attack1","toTalTime":1.13333344,"eventList":[{"$type":"wc.framework.SkillEditorPlayEffect,
+    Assembly-CSharp-Editor","objName":"W_BaD_Attack_Hit_001_76586a7b70f79a246bc33d9f03c42f95","bindType":"Role","bindParentType":"Bip001_R_Hand","posType":"World","dirType":"Screen","scaleType":"World","transform":{"isCustomize":true,"position":{"x":0.0,"y":2.83,"z":0.0},"rotation":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.0,"y":0.0,"z":0.0}},"type":"PlayEffect","time":1.2}]}]}'

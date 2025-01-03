@@ -34,5 +34,15 @@ namespace wc.framework
             }
             return go.GetComponent<T>();            
         }
+
+        public static GameObject EnsuireGameObject(string objName)
+        {
+            GameObject go = GameObject.Find(objName);
+            if(go == null)
+            {
+                go = new GameObject(objName);
+            }
+            return go;
+        }
     }
 }

@@ -25,7 +25,7 @@ public class RolePrefabWindow : EditorWindow  {
     private const string AssetPath = "Assets/Asset/Role";
     private const string PrefabPath = "Assets/Resources/Res/Role/";
 
-    private SearchBar _bar = new SearchBar();
+    private SearchBar _bar ;
     public void Open()
     {    
         roleList.Clear();
@@ -171,18 +171,18 @@ public class RolePrefabWindow : EditorWindow  {
             }
         };
 
-        findExtraTransform(prefab.transform,"Root");
-        findExtraTransform(prefab.transform,"Bip001 Head");
-        findExtraTransform(prefab.transform,"Bip001 Spine");
-        findExtraTransform(prefab.transform,"Bip001 L Hand");
-        findExtraTransform(prefab.transform,"Bip001 R Hand");
-        findExtraTransform(prefab.transform,"Bip001 L Foot");
-        findExtraTransform(prefab.transform,"Bip001 R Foot");
-        findExtraTransform(prefab.transform,"Bip001 Spine1");
-        findExtraTransform(prefab.transform,"Bip001 Prop1");
-        modelImporter.optimizeGameObjects = true;
-        modelImporter.extraExposedTransformPaths = extraExposedTransform.ToArray();
-        modelImporter.SaveAndReimport();
+        // findExtraTransform(prefab.transform,"Root");
+        // findExtraTransform(prefab.transform,"Bip001 Head");
+        // findExtraTransform(prefab.transform,"Bip001 Spine");
+        // findExtraTransform(prefab.transform,"Bip001 L Hand");
+        // findExtraTransform(prefab.transform,"Bip001 R Hand");
+        // findExtraTransform(prefab.transform,"Bip001 L Foot");
+        // findExtraTransform(prefab.transform,"Bip001 R Foot");
+        // findExtraTransform(prefab.transform,"Bip001 Spine1");
+        // findExtraTransform(prefab.transform,"Bip001 Prop1");
+        // modelImporter.optimizeGameObjects = true;
+        // modelImporter.extraExposedTransformPaths = extraExposedTransform.ToArray();
+        // modelImporter.SaveAndReimport();
 
         
 
@@ -257,6 +257,9 @@ public class RolePrefabWindow : EditorWindow  {
         string animatorPath = $"{AssetPath}/{prefabName}/AnimatorController/{prefabName}.controller";
         RuntimeAnimatorController animatorController = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(animatorPath);
         animator.runtimeAnimatorController = animatorController;
+        animator.enabled = false;
+        animator.applyRootMotion = true;
+        animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
 
 
         Action<GameObject> setLayer = null;
