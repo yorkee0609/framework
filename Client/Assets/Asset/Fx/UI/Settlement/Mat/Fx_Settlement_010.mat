@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Fx_Settlement_010
+  m_Shader: {fileID: 4800000, guid: d2ce2748c8b6c654db4e3e125a6ae799, type: 3}
+  m_ShaderKeywords: _DIFFUSEMASK_ON _DISTORTION_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DiffuseMaskTex:
+        m_Texture: {fileID: 2800000, guid: 8208b5ae3f7e6dd4e93eff16b42c7dac, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DissolutionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionTex:
+        m_Texture: {fileID: 2800000, guid: b872705444c1410682c54a4664884ea2, type: 3}
+        m_Scale: {x: 2, y: 0.5}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4b8ce9a7cf174304ebfdd13ceec53ea6, type: 3}
+        m_Scale: {x: 3, y: 0.5}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AlphaValue: 1
+    - _BlendMode: 0
+    - _ColorMask: 15
+    - _ColorSwitch: 0
+    - _Comp: 1
+    - _CompMode: 1
+    - _CullMode: 2
+    - _DiffuseAngle: 90
+    - _DiffuseMask: 1
+    - _DiffuseMaskLayerShown: 1
+    - _DiffuseRotate: 0
+    - _Dissolution: 0
+    - _DissolutionLayerShown: 1
+    - _DissolutionPopUp: 0
+    - _Dissolution_USpeed: 0.5
+    - _Dissolution_VSpeed: 0.3
+    - _Dissolvability: 0
+    - _Distortion: 1
+    - _DistortionIntensity: 0.2
+    - _DistortionLayerShown: 1
+    - _DistortionPopUp: 0
+    - _Distortion_USpeed: 0
+    - _Distortion_VSpeed: -0.2
+    - _DstBlend: 1
+    - _Eclosion: 0.838
+    - _EdgeWidth: 0
+    - _FaceMode: 0
+    - _LerpValue: 1
+    - _MainTexPopUp: 0
+    - _MaskAngle: 90
+    - _MaskRotate: 0
+    - _MaskTexPopUp: 0
+    - _Mask_USpeed: 0
+    - _Mask_VSpeed: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _USpeed: 0
+    - _UseUIAlphaClip: 0
+    - _VSpeed: -0.5
+    - _WorldClip: 0
+    - _WorldClipRange: 5
+    - _ZTest: 4
+    - _ZTestMode: 0
+    m_Colors:
+    - _Color: {r: 1.8639913, g: 1.2470989, b: 0.641846, a: 1}
+    - _DissolutionRGBA: {r: 1, g: 0, b: 0, a: 0}
+    - _DistortionRGBA: {r: 1, g: 0, b: 0, a: 0}
+    - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LerpColor: {r: 1, g: 0.18392023, b: 0.11764705, a: 1}
+    - _MainTexRGBA: {r: 1, g: 1, b: 1, a: 1}
+    - _MaskTexRGBA: {r: 0, g: 0, b: 0, a: 1}
